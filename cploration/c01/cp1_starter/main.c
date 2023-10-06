@@ -1,8 +1,8 @@
 /****************************************
  * C-ploration 1 for CS 271
  * 
- * [NAME] $YOUR_NAME$
- * [TERM] FALL $YEAR$
+ * [NAME] Liam Colburn
+ * [TERM] FALL 2023
  * 
  ****************************************/
 
