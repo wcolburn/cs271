@@ -61,7 +61,13 @@ int fib(int n)
  */
 int max(int arr[], int n)
 {
-    /** Your CODE here **/
+    int largestNum = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > largestNum) {
+            largestNum = arr[i];
+        }
+    }
+    return largestNum;
 }
 
 /* Function: sum
