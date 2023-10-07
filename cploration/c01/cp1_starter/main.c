@@ -102,7 +102,11 @@ int sum(int arr[], int n)
  *
  */
 double pie(long int n){
-    /** Your CODE here **/
+    double oneFourthPie = 0;
+    for (int i = 0; i < n; i++) {
+        oneFourthPie += pow(-1, i) * (1.0 / (1 + 2*i));
+    }
+    return oneFourthPie * 4;
 } 
 
 
