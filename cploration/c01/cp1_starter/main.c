@@ -82,7 +82,11 @@ int max(int arr[], int n)
  */
 int sum(int arr[], int n)
 {
-    /** Your CODE here **/
+    int sumOfNumbers = 0;
+    for (int i = 0; i < n; i++) {
+        sumOfNumbers += arr[i];
+    }
+    return sumOfNumbers;
 }
 
 
