@@ -22,7 +22,11 @@
  */
 int add(int n)
 {
-    /** Your CODE here **/
+    int sum = 0;
+    for (int i = 1; i < n; i++) {
+        sum += i;
+    }
+    return sum;
 }   
 
 
@@ -37,7 +41,11 @@ int add(int n)
  */
 int fib(int n)
 {
-    /** Your CODE here **/
+    if (n == 0) {
+        return 0;
+    } else {
+        return fib(n) + fib(n - 1);
+    }
 }
  
  
