@@ -74,9 +74,10 @@ char *welcome(char* hello, char* name) {
  * returns: nothing. result contains the reversed string.
  */
 void reverse(char* txt, char* result) {
-
-	/* REPLACE WITH YOUR CODE */
-	
+    int lengthOfTxt = length(txt);
+	for (int i = lengthOfTxt-1; i >= 0; i--) {
+        result[lengthOfTxt-i-1] = txt[i];
+    }
 }
 
 
