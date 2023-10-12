@@ -91,11 +91,19 @@ void reverse(char* txt, char* result) {
  * returns: integer count of vowels
  */
 int vowels(char* txt) {
-	int vowel = 0;
+	int numVowels = 0;
+    char listOfVowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    int lengthOfTxt = length(txt);
 
-	/* REPLACE WITH YOUR CODE */
+    for (int i = 0; i < lengthOfTxt; ++i) {
+        for (int k = 0; k < length(listOfVowels); ++k) {
+            if (txt[i] == listOfVowels[k]) {
+                numVowels += 1;
+            }
+        }
+    }
 
-	return vowel;
+	return numVowels;
 }
 
 
