@@ -25,8 +25,13 @@
  */
 int length(char* txt) {
 	int len = 0;
+    char endChar = '\0';
 	
-	/* REPLACE WITH YOUR CODE */
+	char nextChar = *txt;
+    while (nextChar != endChar) {
+        len += 1;
+        nextChar = txt[len];
+    }
 
 	return len;  
 }
