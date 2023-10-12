@@ -123,7 +123,15 @@ int vowels(char* txt) {
  */
 int quartile(char* name) {
 
-	/* REPLACE WITH YOUR CODE */
+    if (strcmp(name, "G") < 0) {
+        return 1;
+    } else if (strcmp(name, "M") < 0) {
+        return 2;
+    } else if (strcmp(name, "S") < 0) {
+        return 3;
+    } else {
+        return 4;
+    }
 	
 	return -1; // <==fix!
 }
