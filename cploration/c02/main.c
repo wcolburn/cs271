@@ -132,8 +132,6 @@ int quartile(char* name) {
     } else {
         return 4;
     }
-	
-	return -1; // <==fix!
 }
 
 
