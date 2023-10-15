@@ -78,6 +78,7 @@ void reverse(char* txt, char* result) {
 	for (int i = lengthOfTxt-1; i >= 0; i--) {
         result[lengthOfTxt-i-1] = txt[i];
     }
+    result[lengthOfTxt] = '\0';
 }
 
 
