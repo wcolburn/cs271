@@ -41,5 +41,8 @@ int main(int argc, const char *argv[])
         line_num += 1;
     }
 
+    fclose(fin);
+    fclose(fout);
+
     return 0;
 }
