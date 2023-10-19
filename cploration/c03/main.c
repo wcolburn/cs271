@@ -32,5 +32,14 @@ int main(int argc, const char *argv[])
 
     FILE *fout = fopen(out_file, "w+");
 
-	return 0;
+    char line[MAX_LINE_LENGTH] = {0};
+    unsigned int line_num = 0;
+
+    while (fgets(line, sizeof(line), fin)) {
+        printf("[%04d] %s", line_num, line);
+        fprintf(fout, "%s", line);
+        line_num += 1;
+    }
+
+    return 0;
 }
