@@ -36,9 +36,9 @@ int main(int argc, const char *argv[])
     unsigned int line_num = 0;
 
     while (fgets(line, sizeof(line), fin)) {
+        line_num += 1;
         printf("[%04d] %s", line_num, line);
         fprintf(fout, "%s", line);
-        line_num += 1;
     }
 
     fclose(fin);
