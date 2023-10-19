@@ -30,5 +30,7 @@ int main(int argc, const char *argv[])
     strcpy(out_file, argv[1]);
     strcat(out_file, ".echo");
 
+    FILE *fout = fopen(out_file, "w+");
+
 	return 0;
 }
