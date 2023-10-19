@@ -26,5 +26,9 @@ int main(int argc, const char *argv[])
         exit(EXIT_FAILURE);
     }
 
+    char out_file[strlen(argv[1]) + 1];
+    strcpy(out_file, argv[1]);
+    strcat(out_file, ".echo");
+
 	return 0;
 }
