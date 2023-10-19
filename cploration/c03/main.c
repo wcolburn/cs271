@@ -13,6 +13,11 @@
 #define MAX_LINE_LENGTH  200
 
 int main(int argc, const char *argv[])
-{	
-	return 1;
+{
+    if (argc != 2) {
+        // if incorrect number of arguments
+        printf("Usage: %s [filename]\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+	return 0;
 }
