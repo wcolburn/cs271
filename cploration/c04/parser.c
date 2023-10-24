@@ -33,7 +33,11 @@ void parse(FILE * file){
     char line[MAX_LINE_LENGTH];
 
     while (fgets(line, sizeof(line), file)) {
-
+        strip(line);
+        if (!*line) {
+            continue;
+        }
+        printf("%s\n", line);
     }
 	
 }
