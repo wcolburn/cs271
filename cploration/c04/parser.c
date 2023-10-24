@@ -23,7 +23,7 @@ char *strip(char *s) {
     for (char *s2 = s; *s2; s2++) {
         if (*s2 == '/' && *(s2+1) == '/') {
             break;
-        } else if (isspace(*s2)) {
+        } else if (!isspace(*s2)) {
             s_new[i++] = *s2;
         }
     }
