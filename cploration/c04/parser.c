@@ -28,6 +28,9 @@ char *strip(char *s) {
         }
     }
 
+    s_new[i] = '\0';
+    strcpy(s, s_new);
+
     return s;	
 }
 
