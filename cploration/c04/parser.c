@@ -20,8 +20,12 @@ char *strip(char *s) {
     char s_new[sizeof(s)+1];
     int i = 0;
 
-    for (char *s2 = s; *s2, s2++) {
-
+    for (char *s2 = s; *s2; s2++) {
+        if (*s2 == '/' && *(s2+1) == '/') {
+            break;
+        } else if (isspace(*s2)) {
+            s_new[i++] = *s2;
+        }
     }
 
     return s;	
