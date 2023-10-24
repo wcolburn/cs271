@@ -1,8 +1,8 @@
 /****************************************
  * C-ploration 4 for CS 271
  * 
- * [NAME] $YOUR_NAME$
- * [TERM] FALL $YEAR$
+ * [NAME] William Colburn
+ * [TERM] FALL 2023
  * 
  ****************************************/
 #include "parser.h"
@@ -15,9 +15,7 @@
  *
  * returns: the stripped char* string
  */
-char *strip(char *s){	
-
-	// your code here
+char *strip(char *s) {
 	
     return s;	
 }
@@ -31,7 +29,11 @@ char *strip(char *s){
  * returns: nothing
  */
 void parse(FILE * file){
-	
-	// your code here
+
+    char line[MAX_LINE_LENGTH];
+
+    while (fgets(line, sizeof(line), file)) {
+
+    }
 	
 }
