@@ -16,7 +16,14 @@
  * returns: the stripped char* string
  */
 char *strip(char *s) {
-	
+
+    char s_new[sizeof(s)+1];
+    int i = 0;
+
+    for (char *s2 = s; *s2, s2++) {
+
+    }
+
     return s;	
 }
 
