@@ -56,3 +56,15 @@ void parse(FILE * file){
     }
 	
 }
+
+bool is_Atype(const char *line) {
+    return line[0] == '@';
+}
+
+bool is_lable(const char *line) {
+
+}
+
+bool is_Ctype(const char *line) {
+
+}
