@@ -52,7 +52,13 @@ void parse(FILE * file){
         if (!*line) {
             continue;
         }
-        printf("%s\n", line);
+
+        char inst_type = '\0';
+        if (is_Atype(line)) {
+            inst_type = 'A';
+        }
+
+        printf("%c  %s\n", inst_type, line);
     }
 	
 }
