@@ -58,7 +58,10 @@ void parse(FILE * file){
             inst_type = 'A';
         }
 
-        printf("%c  %s\n", inst_type, line);
+        if (inst_type) {
+            printf("%c  ", inst_type);
+        }
+        printf("%s\n", line);
     }
 	
 }
@@ -68,9 +71,9 @@ bool is_Atype(const char *line) {
 }
 
 bool is_lable(const char *line) {
-
+    return false;
 }
 
 bool is_Ctype(const char *line) {
-
+    return false;
 }
