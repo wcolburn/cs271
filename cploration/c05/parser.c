@@ -58,6 +58,8 @@ void parse(FILE * file){
             inst_type = 'A';
         } else if (is_label(line)) {
             inst_type = 'L';
+        } else if (is_Ctype(line)) {
+            inst_type = 'C';
         }
 
         if (inst_type) {
