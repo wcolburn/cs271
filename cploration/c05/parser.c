@@ -56,6 +56,8 @@ void parse(FILE * file){
         char inst_type = '\0';
         if (is_Atype(line)) {
             inst_type = 'A';
+        } else if (is_label(line)) {
+            inst_type = 'L';
         }
 
         if (inst_type) {
@@ -70,8 +72,8 @@ bool is_Atype(const char *line) {
     return line[0] == '@';
 }
 
-bool is_lable(const char *line) {
-    return false;
+bool is_label(const char *line) {
+    return (line[0] == '(' && line[strlen(line)-1] == ')');
 }
 
 bool is_Ctype(const char *line) {
