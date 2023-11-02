@@ -77,5 +77,5 @@ bool is_label(const char *line) {
 }
 
 bool is_Ctype(const char *line) {
-    return false;
+    return !is_Atype(line) && !is_label(line) && line[0] != '/';
 }
