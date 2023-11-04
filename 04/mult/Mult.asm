@@ -11,13 +11,25 @@
 
 // Put your code here.
 
+@2
+M=0
 @1
 D=M
-@2
+@3
 M=D
-D=0
-
 (Multiplication)
+    @3
+    D=M
+    @End    
+    D;JEQ              // If i == 0, End
     @0
-    D=D+M
-    
+    D=M
+    @2                 // Add R0 to result
+    M=M+D
+    @3                 // i-1
+    M=M-1
+    @Multiplication   // Repeat
+    0;JMP
+(End)
+    @End
+    0;JMP
