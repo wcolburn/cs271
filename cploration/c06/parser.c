@@ -21,7 +21,6 @@ char *strip(char *s) {
     int i = 0;
 
     for (char *s2 = s; *s2; s2++) {
-
         if (*s2 == '/' && *(s2+1) == '/') {
             break;
         } else if (!isspace(*s2)) {
@@ -48,10 +47,14 @@ void parse(FILE * file){
     char line[MAX_LINE_LENGTH];
 
     while (fgets(line, sizeof(line), file)) {
+
         strip(line);
+
         if (!*line) {
             continue;
         }
+
+
 
         char inst_type = '\0';
         if (is_Atype(line)) {
@@ -64,11 +67,20 @@ void parse(FILE * file){
 
         printf("%c  %s\n", inst_type, line);
     }
-	
 }
 
 char *extract_label(const char *line, char* label) {
-    return "";
+    for (int i = 0; i < strlen(line); i++) {
+        if (i == 0) { // Ignore first parenthesis
+            continue;
+        } else if (i == strlen(line) - 1) { // Ignore end parenthesis
+            continue;
+        }
+
+        label += line[i];
+    }
+    label += '\0';
+    return label;
 }
 
 bool is_Atype(const char *line) {
