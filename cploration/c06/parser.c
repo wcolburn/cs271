@@ -67,6 +67,10 @@ void parse(FILE * file){
 	
 }
 
+char *extract_label(const char *line, char* label) {
+    return "";
+}
+
 bool is_Atype(const char *line) {
     return line[0] == '@';
 }
