@@ -54,7 +54,11 @@ void parse(FILE * file){
             continue;
         }
 
-
+        char extracted_line[MAX_LINE_LENGTH];
+        strcpy(extracted_line, line);
+        if (is_label(line)) {
+            extract_label(line, extracted_line);
+        }
 
         char inst_type = '\0';
         if (is_Atype(line)) {
@@ -65,21 +69,23 @@ void parse(FILE * file){
             inst_type = 'C';
         }
 
-        printf("%c  %s\n", inst_type, line);
+        printf("%c  %s\n", inst_type, extracted_line);
     }
 }
 
 char *extract_label(const char *line, char* label) {
+    int label_place_counter = 0;
     for (int i = 0; i < strlen(line); i++) {
         if (i == 0) { // Ignore first parenthesis
             continue;
-        } else if (i == strlen(line) - 1) { // Ignore end parenthesis
+        } else if (line[i] == ')') { // Ignore end parenthesis
             continue;
         }
-
-        label += line[i];
+        label[label_place_counter] = line[i];
+        label_place_counter += 1;
     }
-    label += '\0';
+
+    label[label_place_counter] = '\0';
     return label;
 }
 

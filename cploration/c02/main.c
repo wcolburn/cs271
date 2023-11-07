@@ -75,7 +75,7 @@ char *welcome(char* hello, char* name) {
  */
 void reverse(char* txt, char* result) {
     int lengthOfTxt = length(txt);
-	for (int i = lengthOfTxt-1; i >= 0; i--) {
+    for (int i = lengthOfTxt-1; i >= 0; i--) {
         result[lengthOfTxt-i-1] = txt[i];
     }
     result[lengthOfTxt] = '\0';
