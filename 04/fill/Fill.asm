@@ -12,3 +12,17 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+(MainLoop)
+	@24576
+	D=M
+	@MainLoop
+	D;JEQ				// If keyboard input is 0, keep waiting
+(BlackScreen)
+	@16384
+	M=1
+	@16385
+	M=1
+(End)
+	@End
+	0;JMP
