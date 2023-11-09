@@ -24,6 +24,13 @@ enum instruction_types {
     C_Type = 1
 };
 
+typedef struct c_instruction {
+    opcode a:1;
+    opcode comp:6;
+    opcode dest:3;
+    opcode jump:3;
+} c_instruction;
+
 /** function prototypes **/
 char *strip(char *s);
 
