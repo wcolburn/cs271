@@ -35,10 +35,17 @@ typedef struct a_instruction {
     union {
         hack_addr address;
         char *label;
-    } instruction_type;
+    } a_instruction_type;
     bool is_addr;
 } a_instruction;
 
+typedef struct instruction {
+    union {
+        a_instruction a_instr;
+        c_instruction c_instr;
+    };
+    enum instruction_types instr_type;
+} instruction;
 
 /** function prototypes **/
 char *strip(char *s);
