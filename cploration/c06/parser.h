@@ -31,6 +31,15 @@ typedef struct c_instruction {
     opcode jump:3;
 } c_instruction;
 
+typedef struct a_instruction {
+    union {
+        hack_addr address;
+        char *label;
+    } instruction_type;
+    bool is_addr;
+} a_instruction;
+
+
 /** function prototypes **/
 char *strip(char *s);
 
