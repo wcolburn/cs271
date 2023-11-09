@@ -18,6 +18,12 @@
 typedef int16_t hack_addr;
 typedef int16_t opcode;
 
+enum instruction_types {
+    Invalid = -1,
+    A_Type = 0,
+    C_Type = 1
+};
+
 /** function prototypes **/
 char *strip(char *s);
 
