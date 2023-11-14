@@ -35,3 +35,16 @@ void symtable_insert(char *key, hack_addr addr) {
 
     hashArray[hashIndex] = item;
 }
+
+Symbol *symtable_find(char *key) {
+    int hashIndex = hash(key);
+
+    while (hashArray[hashIndex]  != NULL) {
+        if (strcmp(hashArray[hashIndex]->name, key)) {
+            return hashArray[hashIndex];
+        }
+        ++hashIndex;
+        hashIndex %= SYMBOL_TABLE_SIZE;
+    }
+    return NULL;
+}
