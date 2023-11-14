@@ -19,3 +19,19 @@ int hash(char *string) {
     hash = hash % SYMBOL_TABLE_SIZE;
     return hash;
 }
+
+// Code from https://www.tutorialspoint.com/data_structures_algorithms/hash_table_program_in_c.htm
+void symtable_insert(char *key, hack_addr addr) {
+    Symbol *item = (Symbol*) malloc(sizeof(Symbol));
+    item->name = key;
+    item->addr = addr;
+
+    int hashIndex = hash(key);
+
+    while (hashArray[hashIndex] != NULL) {
+        ++hashIndex;
+        hashIndex %= SYMBOL_TABLE_SIZE;
+    }
+
+    hashArray[hashIndex] = item;
+}
