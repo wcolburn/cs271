@@ -16,7 +16,7 @@ typedef struct Symbol {
 } Symbol;
 
 int hash(char *str);
-struct Symbol *symtable_find(char *key);
+Symbol *symtable_find(char *key);
 void symtable_insert(char* key, hack_addr addr);
 void symtable_display_table();
 void symtable_print_labels();
