@@ -11,3 +11,8 @@
 const int SYMBOL_TABLE_SIZE = 1000;
 
 typedef int16_t hack_addr;
+
+typedef struct Symbol {
+    char *name;
+    hack_addr addr;
+} Symbol;
