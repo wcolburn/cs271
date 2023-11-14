@@ -48,3 +48,15 @@ Symbol *symtable_find(char *key) {
     }
     return NULL;
 }
+
+void symtable_display_table() {
+    for (int i = 0; i < SYMBOL_TABLE_SIZE; i++) {
+        if(hashArray[i] != NULL) {
+            printf(" (%s,%d)", hashArray[i]->name, hashArray[i]->addr);
+        }
+        else {
+            printf(" ~~ ");
+        }
+    }
+    printf("\n");
+}
