@@ -50,7 +50,8 @@ Symbol *symtable_find(char *key) {
 }
 
 void symtable_display_table() {
-    for (int i = 0; i < SYMBOL_TABLE_SIZE; i++) {
+    int i = 0;
+    for (i = 0; i < SYMBOL_TABLE_SIZE; i++) {
         if(hashArray[i] != NULL) {
             printf(" (%s,%d)", hashArray[i]->name, hashArray[i]->addr);
         }
@@ -59,4 +60,13 @@ void symtable_display_table() {
         }
     }
     printf("\n");
+}
+
+void symtable_print_labels() {
+    int i = 0;
+    for(i = 0; i<SYMBOL_TABLE_SIZE; i++) {
+        if(hashArray[i] != NULL){
+            printf("{%s,%d}\n",hashArray[i]->name,hashArray[i]->addr);
+        }
+    }
 }
