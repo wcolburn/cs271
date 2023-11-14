@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-const int SYMBOL_TABLE_SIZE = 1000;
+#define SYMBOL_TABLE_SIZE 1000
 typedef int16_t hack_addr;
 typedef struct Symbol {
     char *name;
