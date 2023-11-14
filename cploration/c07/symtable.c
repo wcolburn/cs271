@@ -23,7 +23,7 @@ int hash(char *string) {
 // Code from https://www.tutorialspoint.com/data_structures_algorithms/hash_table_program_in_c.htm
 void symtable_insert(char *key, hack_addr addr) {
     Symbol *item = (Symbol*) malloc(sizeof(Symbol));
-    item->name = key;
+    item->name = strdup(key);
     item->addr = addr;
 
     int hashIndex = hash(key);
