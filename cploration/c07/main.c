@@ -6,7 +6,7 @@
  * 
  ****************************************/
 #include "parser.h"
-#include "symtable.h"
+//#include "symtable.h"
 
 int main(int argc, const char *argv[])
 {
