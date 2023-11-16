@@ -59,21 +59,10 @@ void parse(FILE * file){
         strcpy(extracted_line, line);
         if (is_label(line)) {
             extract_label(line, extracted_line);
+            symtable_insert(extracted_line, lineNum);
+        } else {
+            lineNum++;
         }
-
-        symtable_insert(extracted_line, lineNum);
-        lineNum++;
-
-//        char inst_type = '\0';
-//        if (is_Atype(line)) {
-//            inst_type = 'A';
-//        } else if (is_label(line)) {
-//            inst_type = 'L';
-//        } else if (is_Ctype(line)) {
-//            inst_type = 'C';
-//        }
-
-//        printf("%c  %s\n", inst_type, extracted_line);
     }
 }
 
