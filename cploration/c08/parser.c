@@ -71,12 +71,14 @@ void parse(FILE * file){
                 exit_program(EXIT_INVALID_LABEL, line_num, line);
             }
 
+            if (symtable_find(extracted_line) != NULL) {
+                exit_program(EXIT_SYMBOL_ALREADY_EXISTS, line_num, line);
+            }
+
             symtable_insert(extracted_line, instr_num);
+            continue;
 
-        } else {
-            instr_num++;
         }
-
 
         char inst_type = '\0';
         if (is_Atype(line)) {
@@ -88,6 +90,7 @@ void parse(FILE * file){
         }
         printf("%u: %c  %s\n", instr_num, inst_type, line);
 
+        instr_num++;
     }
 }
 
