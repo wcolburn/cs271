@@ -11,7 +11,8 @@ const char *error_messages[] =
         {
                 [EXIT_INCORRECT_ARGUMENTS] = "Usage: %s [filename]",
                 [EXIT_CANNOT_OPEN_FILE] = "Cannot open file %s",
-                [EXIT_TOO_MANY_INSTRUCTIONS] = "File contains more than the maximum of %u instructions."
+                [EXIT_TOO_MANY_INSTRUCTIONS] = "File contains more than the maximum of %u instructions",
+                [EXIT_INVALID_LABEL] = "Line %u: %s : Invalid label name"
         };
 
 void exit_program(enum exitcode code, ...)

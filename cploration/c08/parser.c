@@ -65,8 +65,14 @@ void parse(FILE * file){
         char extracted_line[MAX_LINE_LENGTH];
         strcpy(extracted_line, line);
         if (is_label(line)) {
+
             extract_label(line, extracted_line);
+            if (!isalpha(extracted_line[0])) {
+                exit_program(EXIT_INVALID_LABEL, line_num, line);
+            }
+
             symtable_insert(extracted_line, instr_num);
+
         } else {
             instr_num++;
         }
