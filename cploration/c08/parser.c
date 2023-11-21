@@ -44,10 +44,13 @@ char *strip(char *s) {
  */
 void parse(FILE * file){
 
+    unsigned int line_num = 0;
+    unsigned int instr_num = 0;
     char line[MAX_LINE_LENGTH];
-    int lineNum = 0;
 
     while (fgets(line, sizeof(line), file)) {
+
+        line_num++;
 
         strip(line);
 
@@ -59,9 +62,9 @@ void parse(FILE * file){
         strcpy(extracted_line, line);
         if (is_label(line)) {
             extract_label(line, extracted_line);
-            symtable_insert(extracted_line, lineNum);
+            symtable_insert(extracted_line, instr_num);
         } else {
-            lineNum++;
+            instr_num++;
         }
 
 
@@ -73,7 +76,7 @@ void parse(FILE * file){
         } else if (is_Ctype(line)) {
             inst_type = 'C';
         }
-        printf("%u: %c  %s\n", lineNum, inst_type, line);
+        printf("%u: %c  %s\n", instr_num, inst_type, line);
 
     }
 }
