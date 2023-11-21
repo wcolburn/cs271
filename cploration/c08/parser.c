@@ -6,6 +6,7 @@
  * 
  ****************************************/
 #include "parser.h"
+#include "error.h"
 
 /* Function: strip
  * -------------
@@ -51,6 +52,9 @@ void parse(FILE * file){
     while (fgets(line, sizeof(line), file)) {
 
         line_num++;
+        if (instr_num > MAX_LINE_LENGTH) {
+            exit_program(EXIT_TOO_MANY_INSTRUCTIONS, MAX_INSTRUCTIONS + 1);
+        }
 
         strip(line);
 
