@@ -1,5 +1,5 @@
 /****************************************
- * C-ploration 7 for CS 271
+ * C-ploration 8 for CS 271
  * 
  * [NAME] William Colburn
  * [TERM] FALL 2023
@@ -12,6 +12,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "symtable.h"
+
+#ifndef __PARSER_H__
+#define __PARSER_H__
 
 #define MAX_LINE_LENGTH  200
 #define MAX_LABEL_LENGTH = MAX_LINE_LENGTH - 2;
@@ -58,3 +61,5 @@ char *extract_label(const char *line, char* label);
 bool is_Atype(const char *);
 bool is_label(const char *);
 bool is_Ctype(const char *);
+
+#endif
