@@ -24,7 +24,6 @@ int main(int argc, const char *argv[])
     }
 
     parse(fin);
-    symtable_print_labels();
     fclose(fin);
 
 }

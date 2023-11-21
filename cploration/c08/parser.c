@@ -63,6 +63,18 @@ void parse(FILE * file){
         } else {
             lineNum++;
         }
+
+
+        char inst_type = '\0';
+        if (is_Atype(line)) {
+            inst_type = 'A';
+        } else if (is_label(line)) {
+            inst_type = 'L';
+        } else if (is_Ctype(line)) {
+            inst_type = 'C';
+        }
+        printf("%u: %c  %s\n", lineNum, inst_type, line);
+
     }
 }
 
