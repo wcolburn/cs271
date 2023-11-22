@@ -6,7 +6,6 @@
  * 
  ****************************************/
 #include "parser.h"
-#include "error.h"
 
 /* Function: strip
  * -------------
@@ -68,11 +67,11 @@ void parse(FILE * file){
 
             extract_label(line, extracted_line);
             if (!isalpha(extracted_line[0])) {
-                exit_program(EXIT_INVALID_LABEL, line_num, line);
+                exit_program(EXIT_INVALID_LABEL, line_num, extracted_line);
             }
 
             if (symtable_find(extracted_line) != NULL) {
-                exit_program(EXIT_SYMBOL_ALREADY_EXISTS, line_num, line);
+                exit_program(EXIT_SYMBOL_ALREADY_EXISTS, line_num, extracted_line);
             }
 
             symtable_insert(extracted_line, instr_num);

@@ -13,7 +13,6 @@ int main(int argc, const char *argv[])
 
     if (argc != 2) {
         // if incorrect number of arguments
-        printf("Usage: %s [filename]\n", argv[0]);
         exit_program(EXIT_INCORRECT_ARGUMENTS, argv[0]);
     }
 

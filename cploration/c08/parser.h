@@ -12,6 +12,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "symtable.h"
+#include "error.h"
 
 #ifndef __PARSER_H__
 #define __PARSER_H__
