@@ -41,16 +41,71 @@ CHIP CPU {
     PARTS:
     
     // Handles A Register
-    Mux16(a=instruction, b=TODO, sel=instruction[0], out=ToStoreInA);
-    ARegister(in=ToStoreInA, load=instruction[10], out=ARegOut);
+    Mux16(a=instruction, b=ALUOut, sel=instruction[15], out=ToStoreInA);
+    Not(in=instruction[15], out=isA);
+    Or(a=instruction[5], b=isA, out=shouldLoad);
+    ARegister(in=ToStoreInA, load=shouldLoad, out=ARegOut, out[0..14]=addressM);
+
 
     // Handles A/M into ALU
-    Mux16(a=ARegOut, b=inM, sel=instruction[3], out=AOrM);
+    Mux16(a=ARegOut, b=inM, sel=instruction[12], out=AOrM);
+    // Mux16(a=inM, b=ARegOut, sel=instruction[3], out=AOrM);
+
+
+    // Handles D Reg
+    DRegister(in=ALUOut, load=instruction[4], out=DRegOut);
+
 
     // Handles ALU
-    ALU(x=TODO-DReg, y=AOrM, zx=instruction[4], nx=instruction[5], zy=instruction[6], nyinstruction[7], f=instruction[8], no=instruction[9], out=TODO, zr=zr, ng=ng);
+    ALU(x=DRegOut, y=AOrM, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=outM, out=ALUOut, zr=zr, ng=ng);
 
-    
+    // Handles writeM
+    And(a=instruction[15], b=instruction[3], out=writeM);
+
+
+
+    // Handles jump decision
+
+    // j1 out < 0
+    And(a=instruction[2], b=ng, out=isLessThanZero);
+
+    // j2 out == 0
+    And(a=instruction[1], b=zr, out=isEqualToZero);
+
+    // j3 out > 0
+    Or(a=zr, b=ng, out=zrOrNg);
+    Not(in=zrOrNg, out=NotZrOrNg);
+    And(a=instruction[0], b=NotZrOrNg, out=isGreaterThanZero);
+
+
+    Or(a=isLessThanZero, b=isEqualToZero, out=isLessOrEqualToZero);
+    Or(a=isLessOrEqualToZero, b=isGreaterThanZero, out=LessAndEqualAndGreater);
+
+    // Checks if 101
+    // And(a=instruction[0], b=instruction[2], out=GreaterAndLess);
+    // Not(in=instruction[1], out=NotEqualZero);
+    // And(a=GreaterAndLess, b=NotEqualZero, out=isJNE);
+    // Not(in=zr, out=NotZr);
+    // And(a=isJNE, b=NotZr, out=JNETrue);
+    // Or(a=JNETrue, b=LessAndEqualAndGreater, out=JNEOveride);    
+
+    // Handles 000 or 111
+    And(a=instruction[0], b=instruction[1], out=ZeroAndOne);
+    And(a=ZeroAndOne, b=instruction[2], out=JumpRegardless);
+
+    Or(a=instruction[0], b=instruction[1], out=ZeroOrOne);
+    Or(a=ZeroOrOne, b=instruction[2], out=NotAllZero);
+
+    And(a=LessAndEqualAndGreater, b=NotAllZero, out=ZeroOveride);
+    Or(a=ZeroOveride, b=JumpRegardless, out=BothOverides);
+
+    // If A type, do not jump at all
+    And(a=BothOverides, b=instruction[15], out=JmpResult);
+
+
+    // Handles PC
+    Not(in=JmpResult, out=ShouldInc);
+    PC(in=ARegOut, load=JmpResult,  inc=ShouldInc, reset=reset, out[0..14]=pc);
 
 }
 
