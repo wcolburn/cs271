@@ -53,7 +53,8 @@ CHIP CPU {
 
 
     // Handles D Reg
-    DRegister(in=ALUOut, load=instruction[4], out=DRegOut);
+    And(a=instruction[15], b=instruction[4], out= shouldLoadD);
+    DRegister(in=ALUOut, load=shouldLoadD, out=DRegOut);
 
 
     // Handles ALU
