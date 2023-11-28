@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "symtable.h"
 #include "error.h"
+#include "hack.h"
 
 #ifndef __PARSER_H__
 #define __PARSER_H__
