@@ -48,6 +48,8 @@ void parse(FILE * file){
     unsigned int instr_num = 0;
     char line[MAX_LINE_LENGTH];
 
+    add_predefined_symbols();
+
     while (fgets(line, sizeof(line), file)) {
 
         line_num++;
