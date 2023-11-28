@@ -47,6 +47,7 @@ void parse(FILE * file){
     unsigned int line_num = 0;
     unsigned int instr_num = 0;
     char line[MAX_LINE_LENGTH];
+    instruction instr;
 
     add_predefined_symbols();
 
@@ -84,6 +85,10 @@ void parse(FILE * file){
         char inst_type = '\0';
         if (is_Atype(line)) {
             inst_type = 'A';
+            if (!parse_A_instruction(line, &instr.a_instr)){
+                exit_program(EXIT_INVALID_A_INSTR, line_num, line);
+            }
+            instr.instr_type = A_Type;
         } else if (is_label(line)) {
             inst_type = 'L';
         } else if (is_Ctype(line)) {
