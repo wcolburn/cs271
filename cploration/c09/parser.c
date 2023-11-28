@@ -118,6 +118,20 @@ void add_predefined_symbols() {
     }
 }
 
+bool parse_A_instruction(const char *line, a_instruction *instr) {
+    char *s = (char *) malloc(sizeof(line));
+    strcpy(s, line+1);
+
+    char *s_end = NULL;
+    long result = strtol(s, &s_end, 10);
+
+    if (strcmp(s, s_end)) {
+        instr->a_instruction_type.label = (char *) malloc(sizeof(line));
+        strcpy(instr->a_instruction_type.label, s);
+        instr->is_addr = 0;
+    }
+}
+
 bool is_Atype(const char *line) {
     return line[0] == '@';
 }
