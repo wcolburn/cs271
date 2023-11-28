@@ -110,7 +110,10 @@ char *extract_label(const char *line, char* label) {
 }
 
 void add_predefined_symbols() {
-
+    for (int i = 0; i < NUM_PREDEFINED_SYMBOLS; i++) {
+        predefined_symbol symbol = predefined_symbols[i];
+        symtable_insert(symbol.name, symbol.address);
+    }
 }
 
 bool is_Atype(const char *line) {

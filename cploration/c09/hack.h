@@ -5,11 +5,11 @@
  * [TERM] FALL 2023
  *
  ****************************************/
-#ifndef __ERROR_H__
-#define __ERROR_H__
-
 #include <stdio.h>
 #include <string.h>
+
+#ifndef __HACK_H__
+#define __HACK_H__
 
 #define NUM_PREDEFINED_SYMBOLS 23
 
