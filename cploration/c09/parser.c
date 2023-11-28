@@ -94,7 +94,7 @@ void parse(FILE * file){
         } else if (is_Ctype(line)) {
             inst_type = 'C';
         }
-        printf("%u: %c  %s\n", instr_num, inst_type, line);
+        // printf("%u: %c  %s\n", instr_num, inst_type, line);
 
         instr_num++;
     }
@@ -130,7 +130,7 @@ bool parse_A_instruction(const char *line, a_instruction *instr) {
     char *s_end = NULL;
     long result = strtol(s, &s_end, 10);
 
-    if (strcmp(s, s_end)) {
+    if (s == s_end) {
         instr->a_instruction_type.label = (char *) malloc(sizeof(line));
         strcpy(instr->a_instruction_type.label, s);
         instr->is_addr = false;
