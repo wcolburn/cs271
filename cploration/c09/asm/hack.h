@@ -5,10 +5,11 @@
  * [TERM] FALL 2023
  *
  ****************************************/
-
 #ifndef __ERROR_H__
 #define __ERROR_H__
 
+#include <stdio.h>
+#include <string.h>
 
 #define NUM_PREDEFINED_SYMBOLS 23
 
@@ -37,5 +38,11 @@ enum symbol_id {
     THIS,
     THAT
 };
+
+typedef struct {
+    char *name;
+    int16_t address;
+} predefined_symbol;
+
 
 #endif
