@@ -109,6 +109,10 @@ char *extract_label(const char *line, char* label) {
     return label;
 }
 
+void add_predefined_symbols() {
+
+}
+
 bool is_Atype(const char *line) {
     return line[0] == '@';
 }
