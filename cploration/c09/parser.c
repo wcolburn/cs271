@@ -128,8 +128,14 @@ bool parse_A_instruction(const char *line, a_instruction *instr) {
     if (strcmp(s, s_end)) {
         instr->a_instruction_type.label = (char *) malloc(sizeof(line));
         strcpy(instr->a_instruction_type.label, s);
-        instr->is_addr = 0;
+        instr->is_addr = false;
+    } else if (*s_end != 0) {
+        return false;
+    } else {
+        instr->a_instruction_type.address = result;
+        instr->is_addr = true;
     }
+    return true;
 }
 
 bool is_Atype(const char *line) {
