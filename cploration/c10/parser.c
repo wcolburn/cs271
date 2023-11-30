@@ -42,7 +42,7 @@ char *strip(char *s) {
  *
  * returns: nothing
  */
-void parse(FILE * file){
+int parse(FILE * file, instruction *instructions) {
 
     unsigned int line_num = 0;
     unsigned int instr_num = 0;
@@ -109,8 +109,9 @@ void parse(FILE * file){
         }
         // printf("%u: %c  %s\n", instr_num, inst_type, line);
 
-        instr_num++;
+        instructions[instr_num++] = instr;
     }
+    return instr_num;
 }
 
 char *extract_label(const char *line, char* label) {

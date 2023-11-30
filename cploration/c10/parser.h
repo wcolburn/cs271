@@ -58,7 +58,7 @@ typedef struct instruction {
 /** function prototypes **/
 char *strip(char *s);
 
-void parse(FILE * file);
+int parse(FILE * file, instruction *instructions);
 
 char *extract_label(const char *line, char* label);
 
