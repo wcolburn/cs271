@@ -96,6 +96,10 @@ void parse(FILE * file){
             char tmp_line[MAX_LINE_LENGTH];
             strcpy(tmp_line, line);
             parse_C_instruction(tmp_line, &instr.c_instr);
+            if (instr.c_instr.dest == DEST_INVALID) {
+                exit_program(EXIT_INVALID_C_DEST, line_num, line);
+            }
+            instr.instr_type = C_Type;
         }
         // printf("%u: %c  %s\n", instr_num, inst_type, line);
 

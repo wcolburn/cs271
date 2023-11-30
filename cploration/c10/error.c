@@ -15,6 +15,7 @@ const char *error_messages[] =
                 [EXIT_INVALID_LABEL] = "Line %u: %s : Invalid label name",
                 [EXIT_SYMBOL_ALREADY_EXISTS] = "Line %u: %s : Symbol is already defined",
                 [EXIT_INVALID_A_INSTR] = "Line %u: %s : Invalid A-instruction operand",
+                [EXIT_INVALID_C_DEST] = "Line %u: %s : Invalid destination part of C-instruction",
         };
 
 void exit_program(enum exitcode code, ...)
