@@ -70,4 +70,16 @@ static const predefined_symbol predefined_symbols[NUM_PREDEFINED_SYMBOLS] = {
         {"THAT", SYM_THAT}
 };
 
+enum jump_id {
+    JMP_INVALID = -1,
+    JMP_NULL,
+    JMP_JGT,
+    JMP_JEQ,
+    JMP_JGE,
+    JMP_JLT,
+    JMP_JNE,
+    JMP_JLE,
+    JMP_JMP
+};
+
 #endif
