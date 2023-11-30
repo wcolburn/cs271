@@ -82,4 +82,16 @@ enum jump_id {
     JMP_JMP
 };
 
+enum dest_id {
+    DEST_INVALID = -1,
+    DEST_NULL,
+    DEST_M,
+    DEST_D,
+    DEST_MD,
+    DEST_A,
+    DEST_AM,
+    DEST_AD,
+    DEST_AMD
+};
+
 #endif
