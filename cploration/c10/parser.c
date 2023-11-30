@@ -93,6 +93,9 @@ void parse(FILE * file){
             inst_type = 'L';
         } else if (is_Ctype(line)) {
             inst_type = 'C';
+            char tmp_line[MAX_LINE_LENGTH];
+            strcpy(tmp_line, line);
+            parse_C_instruction(tmp_line, &instr.c_instr);
         }
         // printf("%u: %c  %s\n", instr_num, inst_type, line);
 
@@ -154,10 +157,11 @@ void parse_C_instruction(char *line, c_instruction *instr) {
     if (comp == NULL) {
         instr->dest = str_to_destid(comp);
     } else {
-        instr->dest = str_to_compid(dest, &a_bit);
+        instr->dest = str_to_destid(dest);
     }
 
     instr->comp = str_to_compid(comp, &a_bit);
+    instr->a = a_bit;
 }
 
 bool is_Atype(const char *line) {
