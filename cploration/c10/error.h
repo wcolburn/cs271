@@ -20,6 +20,7 @@ enum exitcode {
     EXIT_SYMBOL_ALREADY_EXISTS = 5,
     EXIT_INVALID_A_INSTR = 6,
     EXIT_INVALID_C_DEST = 7,
+    EXIT_INVALID_C_COMP = 8,
 };
 
 void exit_program(enum exitcode code, ...);

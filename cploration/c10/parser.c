@@ -99,6 +99,9 @@ void parse(FILE * file){
             if (instr.c_instr.dest == DEST_INVALID) {
                 exit_program(EXIT_INVALID_C_DEST, line_num, line);
             }
+            if (instr.c_instr.comp == EXIT_INVALID_C_COMP) {
+                exit_program(EXIT_INVALID_C_COMP, line_num, line);
+            }
             instr.instr_type = C_Type;
         }
         // printf("%u: %c  %s\n", instr_num, inst_type, line);
