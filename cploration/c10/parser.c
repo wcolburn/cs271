@@ -143,6 +143,23 @@ bool parse_A_instruction(const char *line, a_instruction *instr) {
     return true;
 }
 
+void parse_C_instruction(char *line, c_instruction *instr) {
+    int a_bit;
+
+    char *comp = strtok(line, ";");
+    char *dest = strtok(comp, "=");
+
+    instr->jump = str_to_jumpid(line);
+
+    if (comp == NULL) {
+        instr->dest = str_to_destid(comp);
+    } else {
+        instr->dest = str_to_compid(dest, &a_bit);
+    }
+
+    instr->comp = str_to_compid(comp, &a_bit);
+}
+
 bool is_Atype(const char *line) {
     return line[0] == '@';
 }
