@@ -34,9 +34,9 @@ enum instruction_types {
 
 typedef struct c_instruction {
     opcode a:1;
-    opcode comp:6;
-    opcode dest:3;
-    opcode jump:3;
+    opcode comp:7;
+    opcode dest:4;
+    opcode jump:4;
 } c_instruction;
 
 typedef struct a_instruction {
