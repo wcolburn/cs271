@@ -70,7 +70,7 @@ static const predefined_symbol predefined_symbols[NUM_PREDEFINED_SYMBOLS] = {
         {"THAT", SYM_THAT}
 };
 
-enum jump_id {
+typedef enum jump_id {
     JMP_INVALID = -1,
     JMP_NULL,
     JMP_JGT,
@@ -80,9 +80,9 @@ enum jump_id {
     JMP_JNE,
     JMP_JLE,
     JMP_JMP
-};
+} jump_id;
 
-enum dest_id {
+typedef enum dest_id {
     DEST_INVALID = -1,
     DEST_NULL,
     DEST_M,
@@ -92,9 +92,9 @@ enum dest_id {
     DEST_AM,
     DEST_AD,
     DEST_AMD
-};
+} dest_id;
 
-enum comp_id {
+typedef enum comp_id {
     COMP_INVALID = -1,
     COMP_0 = 42,
     COMP_1 = 63,
@@ -124,6 +124,30 @@ enum comp_id {
     COMP_D_AND_M = 0,
     COMP_D_OR_A = 21,
     COMP_D_OR_M = 21
-};
+} comp_id;
+
+static inline jump_id str_to_jumpid(const char *s) {
+    jump_id id = JMP_INVALID;
+
+    if (s == NULL) {
+        id = JMP_NULL;
+    } else if (strcmp("JGT", s) != 0) {
+        id = JMP_JGT;
+    } else if (strcmp("JEQ", s) != 0) {
+        id = JMP_JEQ;
+    } else if (strcmp("JGE", s) != 0) {
+        id = JMP_JGE;
+    } else if (strcmp("JLT", s) != 0) {
+        id = JMP_JLT;
+    } else if (strcmp("JNE", s) !=0) {
+        id = JMP_JNE;
+    } else if (strcmp("JLE", s) != 0) {
+        id = JMP_JLE;
+    } else if (strcmp("JMP", s) != 0) {
+        id = JMP_JMP;
+    }
+
+    return id;
+}
 
 #endif
