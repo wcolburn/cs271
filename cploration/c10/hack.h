@@ -131,19 +131,19 @@ static inline jump_id str_to_jumpid(const char *s) {
 
     if (s == NULL) {
         id = JMP_NULL;
-    } else if (strcmp("JGT", s) != 0) {
+    } else if (strcmp("JGT", s) == 0) {
         id = JMP_JGT;
-    } else if (strcmp("JEQ", s) != 0) {
+    } else if (strcmp("JEQ", s) == 0) {
         id = JMP_JEQ;
-    } else if (strcmp("JGE", s) != 0) {
+    } else if (strcmp("JGE", s) == 0) {
         id = JMP_JGE;
-    } else if (strcmp("JLT", s) != 0) {
+    } else if (strcmp("JLT", s) == 0) {
         id = JMP_JLT;
-    } else if (strcmp("JNE", s) !=0) {
+    } else if (strcmp("JNE", s) ==0) {
         id = JMP_JNE;
-    } else if (strcmp("JLE", s) != 0) {
+    } else if (strcmp("JLE", s) == 0) {
         id = JMP_JLE;
-    } else if (strcmp("JMP", s) != 0) {
+    } else if (strcmp("JMP", s) == 0) {
         id = JMP_JMP;
     }
 

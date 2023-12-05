@@ -165,20 +165,31 @@ bool parse_A_instruction(const char *line, a_instruction *instr) {
 
 void parse_C_instruction(char *line, c_instruction *instr) {
     int a_bit;
+    char *dest;
 
-    char *comp = strtok(line, ";");
-    char *dest = strtok(comp, "=");
+    dest = strtok(line, ";");
+    char *jump = strtok(NULL, ";");
+    printf("Jump: %s\n", jump);
 
-    instr->jump = str_to_jumpid(line);
+    dest = strtok(dest, "=");
+    printf("Dest: %s\n", dest);
+    char* comp = strtok(NULL, "=");
+    printf("Comp: %s\n", comp);
+
+
+
+    instr->jump = str_to_jumpid(jump);
 
     if (comp == NULL) {
+        instr->comp = str_to_compid(dest, &a_bit);
         instr->dest = str_to_destid(comp);
     } else {
+        instr->comp = str_to_compid(comp, &a_bit);
         instr->dest = str_to_destid(dest);
     }
 
-    instr->comp = str_to_compid(comp, &a_bit);
     instr->a = a_bit;
+    // printf("%hd\n", instr->comp);
 }
 
 bool is_Atype(const char *line) {
