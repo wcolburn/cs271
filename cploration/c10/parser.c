@@ -89,6 +89,11 @@ int parse(FILE * file, instruction *instructions) {
                 exit_program(EXIT_INVALID_A_INSTR, line_num, line);
             }
             instr.instr_type = A_Type;
+            if (instr.a_instr.is_addr) {
+                printf("A: %d\n", instr.a_instr.a_instruction_type.address);
+            } else {
+                printf("A: %s\n", instr.a_instr.a_instruction_type.label);
+            }
         } else if (is_label(line)) {
             inst_type = 'L';
         } else if (is_Ctype(line)) {
@@ -106,6 +111,7 @@ int parse(FILE * file, instruction *instructions) {
                 exit_program(EXIT_INVALID_C_JUMP, line_num, line);
             }
             instr.instr_type = C_Type;
+            printf("C: d=%d, c=%d, j=%d\n", instr.c_instr.dest, instr.c_instr.comp, instr.c_instr.jump);
         }
         // printf("%u: %c  %s\n", instr_num, inst_type, line);
 

@@ -26,8 +26,7 @@ int main(int argc, const char *argv[])
 
     int num_instructions = parse(fin, instructions);
 
-    symtable_print_labels();
-
+//    symtable_print_labels();
     fclose(fin);
 
     free(instructions);

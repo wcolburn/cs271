@@ -84,7 +84,7 @@ typedef enum jump_id {
 
 typedef enum dest_id {
     DEST_INVALID = -1,
-    DEST_NULL,
+    DEST_NULL = 0,
     DEST_M,
     DEST_D,
     DEST_MD,
