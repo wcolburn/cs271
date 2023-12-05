@@ -155,24 +155,24 @@ static inline dest_id str_to_destid(const char *s) {
 
     if (s == NULL) {
         id = DEST_NULL;
-    } else if (strcmp("M", s) != 0) {
+    } else if (strcmp("M", s) == 0) {
         id = DEST_M;
-    } else if (strcmp("D", s) != 0) {
+    } else if (strcmp("D", s) == 0) {
         id = DEST_D;
     }
-    else if (strcmp("MD", s) != 0) {
+    else if (strcmp("MD", s) == 0) {
         id = DEST_MD;
     }
-    else if (strcmp("A", s) != 0) {
+    else if (strcmp("A", s) == 0) {
         id = DEST_A;
     }
-    else if (strcmp("AM", s) != 0) {
+    else if (strcmp("AM", s) == 0) {
         id = DEST_AM;
     }
-    else if (strcmp("AD", s) != 0) {
+    else if (strcmp("AD", s) == 0) {
         id = DEST_AD;
     }
-    else if (strcmp("AMD", s) != 0) {
+    else if (strcmp("AMD", s) == 0) {
         id = DEST_AMD;
     }
 
@@ -182,88 +182,88 @@ static inline dest_id str_to_destid(const char *s) {
 static inline comp_id str_to_compid(const char *s, int *a) {
     comp_id id = COMP_INVALID;
 
-    if (strcmp("0", s) != 0) {
+    if (strcmp("0", s) == 0) {
         id = COMP_0;
         *a=0;
-    } else if (strcmp("1", s) != 0) {
+    } else if (strcmp("1", s) == 0) {
         id = COMP_1;
         *a=0;
-    } else if (strcmp("-1", s) != 0) {
+    } else if (strcmp("-1", s) == 0) {
         id = COMP_NEG_1;
         *a=0;
-    } else if (strcmp("D", s) != 0) {
+    } else if (strcmp("D", s) == 0) {
         id = COMP_D;
         *a=0;
-    } else if (strcmp("A", s) != 0) {
+    } else if (strcmp("A", s) == 0) {
         id = COMP_A;
         *a=0;
-    } else if (strcmp("M", s) != 0) {
+    } else if (strcmp("M", s) == 0) {
         id = COMP_M;
         *a=1;
-    } else if (strcmp("!D", s) != 0) {
+    } else if (strcmp("!D", s) == 0) {
         id = COMP_NOT_D;
         *a=0;
-    } else if (strcmp("!A", s) != 0) {
+    } else if (strcmp("!A", s) == 0) {
         id = COMP_NOT_A;
         *a=0;
-    } else if (strcmp("!M", s) != 0) {
+    } else if (strcmp("!M", s) == 0) {
         id = COMP_NOT_M;
         *a=1;
-    } else if (strcmp("-D", s) != 0) {
+    } else if (strcmp("-D", s) == 0) {
         id = COMP_NEG_D;
         *a=0;
-    } else if (strcmp("-A", s) != 0) {
+    } else if (strcmp("-A", s) == 0) {
         id = COMP_NEG_A;
         *a=0;
-    } else if (strcmp("-M", s) != 0) {
+    } else if (strcmp("-M", s) == 0) {
         id = COMP_NEG_M;
         *a=1;
-    } else if (strcmp("D+1", s) != 0) {
+    } else if (strcmp("D+1", s) == 0) {
         id = COMP_D_ADD_1;
         *a=0;
-    } else if (strcmp("A+1", s) != 0) {
+    } else if (strcmp("A+1", s) == 0) {
         id = COMP_A_ADD_1;
         *a=0;
-    } else if (strcmp("M+1", s) != 0) {
+    } else if (strcmp("M+1", s) == 0) {
         id = COMP_M_ADD_1;
         *a=1;
-    } else if (strcmp("D-1", s) != 0) {
+    } else if (strcmp("D-1", s) == 0) {
         id = COMP_D_MINUS_1;
         *a=0;
-    } else if (strcmp("A-1", s) != 0) {
+    } else if (strcmp("A-1", s) == 0) {
         id = COMP_A_MINUS_1;
         *a=0;
-    } else if (strcmp("M-1", s) != 0) {
+    } else if (strcmp("M-1", s) == 0) {
         id = COMP_M_MINUS_1;
         *a=1;
-    } else if (strcmp("D+A", s) != 0) {
+    } else if (strcmp("D+A", s) == 0) {
         id = COMP_D_ADD_A;
         *a=0;
-    } else if (strcmp("D+M", s) != 0) {
+    } else if (strcmp("D+M", s) == 0) {
         id = COMP_D_ADD_M;
         *a=1;
-    } else if (strcmp("D-A", s) != 0) {
+    } else if (strcmp("D-A", s) == 0) {
         id = COMP_D_MINUS_A;
         *a=0;
-    } else if (strcmp("D-M", s) != 0) {
+    } else if (strcmp("D-M", s) == 0) {
         id = COMP_D_MINUS_M;
         *a=1;
-    } else if (strcmp("A-D", s) != 0) {
+    } else if (strcmp("A-D", s) == 0) {
         id = COMP_A_MINUS_D;
         *a=0;
-    } else if (strcmp("M-D", s) != 0) {
+    } else if (strcmp("M-D", s) == 0) {
         id = COMP_M_MINUS_D;
         *a=1;
-    } else if (strcmp("D&A", s) != 0) {
+    } else if (strcmp("D&A", s) == 0) {
         id = COMP_D_ADD_A;
         *a=0;
-    } else if (strcmp("D&M", s) != 0) {
+    } else if (strcmp("D&M", s) == 0) {
         id = COMP_D_AND_M;
         *a=1;
-    } else if (strcmp("D|A", s) != 0) {
+    } else if (strcmp("D|A", s) == 0) {
         id = COMP_D_OR_A;
         *a=0;
-    } else if (strcmp("D|M", s) != 0) {
+    } else if (strcmp("D|M", s) == 0) {
         id = COMP_D_OR_M;
         *a=1;
     }
