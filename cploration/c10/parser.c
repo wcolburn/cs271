@@ -104,10 +104,10 @@ int parse(FILE * file, instruction *instructions) {
             if (instr.c_instr.dest == DEST_INVALID) {
                 exit_program(EXIT_INVALID_C_DEST, line_num, line);
             }
-            if (instr.c_instr.comp == EXIT_INVALID_C_COMP) {
+            if (instr.c_instr.comp == COMP_INVALID) {
                 exit_program(EXIT_INVALID_C_COMP, line_num, line);
             }
-            if (instr.c_instr.jump == EXIT_INVALID_C_JUMP) {
+            if (instr.c_instr.jump == JMP_INVALID) {
                 exit_program(EXIT_INVALID_C_JUMP, line_num, line);
             }
             instr.instr_type = C_Type;
@@ -169,14 +169,9 @@ void parse_C_instruction(char *line, c_instruction *instr) {
 
     dest = strtok(line, ";");
     char *jump = strtok(NULL, ";");
-    printf("Jump: %s\n", jump);
 
     dest = strtok(dest, "=");
-    printf("Dest: %s\n", dest);
     char* comp = strtok(NULL, "=");
-    printf("Comp: %s\n", comp);
-
-
 
     instr->jump = str_to_jumpid(jump);
 
