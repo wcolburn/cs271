@@ -144,7 +144,7 @@ void add_predefined_symbols() {
 }
 
 bool parse_A_instruction(const char *line, a_instruction *instr) {
-    char *s = (char *) malloc(sizeof(line));
+    char *s = (char *) malloc(strlen(line));
     strcpy(s, line+1);
 
     char *s_end = NULL;
