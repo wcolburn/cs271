@@ -54,7 +54,7 @@ int parse(FILE * file, instruction *instructions) {
     while (fgets(line, sizeof(line), file)) {
 
         line_num++;
-        if (instr_num > MAX_LINE_LENGTH) {
+        if (instr_num > MAX_INSTRUCTIONS) {
             exit_program(EXIT_TOO_MANY_INSTRUCTIONS, MAX_INSTRUCTIONS + 1);
         }
 
@@ -151,7 +151,7 @@ bool parse_A_instruction(const char *line, a_instruction *instr) {
     long result = strtol(s, &s_end, 10);
 
     if (s == s_end) {
-        instr->a_instruction_type.label = (char *) malloc(sizeof(line));
+        instr->a_instruction_type.label = (char *) malloc(strlen(line));
         strcpy(instr->a_instruction_type.label, s);
         instr->is_addr = false;
     } else if (*s_end != 0) {
