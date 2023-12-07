@@ -255,7 +255,7 @@ static inline comp_id str_to_compid(const char *s, int *a) {
         id = COMP_M_MINUS_D;
         *a=1;
     } else if (strcmp("D&A", s) == 0) {
-        id = COMP_D_ADD_A;
+        id = COMP_D_AND_A;
         *a=0;
     } else if (strcmp("D&M", s) == 0) {
         id = COMP_D_AND_M;
