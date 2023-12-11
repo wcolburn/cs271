@@ -194,7 +194,14 @@ void assemble(const char * file_name, instruction* instructions, int num_instruc
 
     FILE *fout = fopen( new_name, "w" );
     for (int i = 0; i < num_instructions; i++) {
-
+        opcode op = 0;
+        // A Type
+        if (instructions[i].instr_type == 0) {
+            if (instructions[i].a_instr.is_addr) {
+                op = instructions[i].a_instr.a_instruction_type.address;
+            }
+        }
+        fprintf(fout, "%hd\n", op);
     }
 
     fclose(fout);
