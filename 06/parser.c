@@ -201,7 +201,7 @@ void assemble(const char * file_name, instruction* instructions, int num_instruc
                 op = instructions[i].a_instr.a_instruction_type.address;
             }
         }
-        fprintf(fout, "%hd\n", op);
+        fprintf(fout, "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", OPCODE_TO_BINARY(op));
     }
 
     fclose(fout);
