@@ -187,6 +187,10 @@ void parse_C_instruction(char *line, c_instruction *instr) {
     // printf("%hd\n", instr->comp);
 }
 
+void assemble(const char * file_name, instruction* instructions, int num_instructions) {
+
+}
+
 bool is_Atype(const char *line) {
     return line[0] == '@';
 }
