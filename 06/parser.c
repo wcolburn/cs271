@@ -1,5 +1,5 @@
 /****************************************
- * C-ploration 10 for CS 271
+ * Project 6 for CS 271
  * 
  * [NAME] William Colburn
  * [TERM] FALL 2023
