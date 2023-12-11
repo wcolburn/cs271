@@ -188,15 +188,16 @@ void parse_C_instruction(char *line, c_instruction *instr) {
 }
 
 void assemble(const char * file_name, instruction* instructions, int num_instructions) {
-    char *new_name = NULL;
-    strcat(new_name, file_name);
+    char new_name[strlen(file_name) + 6];
+    strcpy(new_name, file_name);
     strcat(new_name, ".hack");
 
-    FILE *fin = fopen( new_name, "w" );
-
+    FILE *fout = fopen( new_name, "w" );
     for (int i = 0; i < num_instructions; i++) {
-        // printf(instructions[i]);
+
     }
+
+    fclose(fout);
 
 }
 
