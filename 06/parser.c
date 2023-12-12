@@ -200,11 +200,17 @@ void assemble(const char * file_name, instruction* instructions, int num_instruc
             if (instructions[i].a_instr.is_addr) {
                 op = instructions[i].a_instr.a_instruction_type.address;
             }
+        } else { // C type
+
         }
         fprintf(fout, "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", OPCODE_TO_BINARY(op));
     }
 
     fclose(fout);
+
+}
+
+opcode instruction_to_opcode(c_instruction instr) {
 
 }
 
