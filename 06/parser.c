@@ -188,11 +188,14 @@ void parse_C_instruction(char *line, c_instruction *instr) {
 }
 
 void assemble(const char * file_name, instruction* instructions, int num_instructions) {
+    int variable_addr = 16;
+
     char new_name[strlen(file_name) + 6];
     strcpy(new_name, file_name);
     strcat(new_name, ".hack");
 
     FILE *fout = fopen( new_name, "w" );
+
     for (int i = 0; i < num_instructions; i++) {
         opcode op = 0;
         // A Type
@@ -202,7 +205,9 @@ void assemble(const char * file_name, instruction* instructions, int num_instruc
             } else { // Label
                 Symbol *label = symtable_find(instructions[i].a_instr.a_instruction_type.label);
                 if (label == NULL) {
-                    symtable_insert(instructions[i].a_instr.a_instruction_type.label,16);
+                    symtable_insert(instructions[i].a_instr.a_instruction_type.label,variable_addr);
+                    op = variable_addr;
+                    variable_addr++;
                 } else {
                     op = label->addr;
                 }
