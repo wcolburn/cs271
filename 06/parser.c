@@ -199,6 +199,14 @@ void assemble(const char * file_name, instruction* instructions, int num_instruc
         if (instructions[i].instr_type == 0) {
             if (instructions[i].a_instr.is_addr) {
                 op = instructions[i].a_instr.a_instruction_type.address;
+            } else { // Label
+                Symbol *label = symtable_find(instructions[i].a_instr.a_instruction_type.label);
+                if (label == NULL) {
+                    symtable_insert(instructions[i].a_instr.a_instruction_type.label,16);
+                } else {
+                    op = label->addr;
+                }
+                free(instructions[i].a_instr.a_instruction_type.label);
             }
         } else { // C type
             op = instruction_to_opcode(instructions[i].c_instr);
